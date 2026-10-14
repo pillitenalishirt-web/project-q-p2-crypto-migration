@@ -1,18 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="430" viewBox="0 0 820 430">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500">
 <rect width="100%" height="100%" fill="white"/>
-<text x="410.0" y="32" text-anchor="middle" font-size="19" font-weight="bold">Files scanned by local profile</text>
-<line x1="90" y1="345" x2="785" y2="345" stroke="#333"/>
-<line x1="90" y1="65" x2="90" y2="345" stroke="#333"/>
-<rect x="90.00" y="90.00" width="161.75" height="255.00" fill="#4178be"/>
-<text x="170.88" y="82.00" text-anchor="middle" font-size="12">151</text>
-<text x="170.88" y="369" text-anchor="middle" font-size="11">Platform A - resource-rich baseline (local host)</text>
-<rect x="267.75" y="260.56" width="161.75" height="84.44" fill="#4178be"/>
-<text x="348.62" y="252.56" text-anchor="middle" font-size="12">50</text>
-<text x="348.62" y="369" text-anchor="middle" font-size="11">Platform B - constrained service budget (emulated)</text>
-<rect x="445.50" y="328.11" width="161.75" height="16.89" fill="#4178be"/>
-<text x="526.38" y="320.11" text-anchor="middle" font-size="12">10</text>
-<text x="526.38" y="369" text-anchor="middle" font-size="11">Platform C - embedded IoT scan-budget proxy (emulated)</text>
-<rect x="623.25" y="311.23" width="161.75" height="33.77" fill="#4178be"/>
-<text x="704.12" y="303.23" text-anchor="middle" font-size="12">20</text>
-<text x="704.12" y="369" text-anchor="middle" font-size="11">Platform D - custom bounded scan budget (emulated)</text>
+<text x="500.0" y="32" text-anchor="middle" font-size="19" font-weight="bold" fill="#222">Files scanned by local profile</text>
+<line x1="90" y1="355" x2="965" y2="355" stroke="#333"/>
+<line x1="90" y1="65" x2="90" y2="355" stroke="#333"/>
+<rect x="90.00" y="95.00" width="200.75" height="260.00" fill="#4178be" rx="3"/>
+<text x="190.38" y="85.00" text-anchor="middle" font-size="13" fill="#222">151</text>
+<text x="190.38" y="380" text-anchor="middle" font-size="12" fill="#222">
+<tspan x="190.38" dy="0">Platform A -</tspan>
+<tspan x="190.38" dy="15">resource-rich</tspan>
+<tspan x="190.38" dy="15">baseline (local</tspan>
+<tspan x="190.38" dy="15">host)</tspan>
+</text>
+<rect x="314.75" y="268.91" width="200.75" height="86.09" fill="#4178be" rx="3"/>
+<text x="415.12" y="258.91" text-anchor="middle" font-size="13" fill="#222">50</text>
+<text x="415.12" y="380" text-anchor="middle" font-size="12" fill="#222">
+<tspan x="415.12" dy="0">Platform B -</tspan>
+<tspan x="415.12" dy="15">constrained service</tspan>
+<tspan x="415.12" dy="15">budget (emulated)</tspan>
+</text>
+<rect x="539.50" y="337.78" width="200.75" height="17.22" fill="#4178be" rx="3"/>
+<text x="639.88" y="327.78" text-anchor="middle" font-size="13" fill="#222">10</text>
+<text x="639.88" y="380" text-anchor="middle" font-size="12" fill="#222">
+<tspan x="639.88" dy="0">Platform C -</tspan>
+<tspan x="639.88" dy="15">embedded IoT scan-</tspan>
+<tspan x="639.88" dy="15">budget proxy</tspan>
+<tspan x="639.88" dy="15">(emulated)</tspan>
+</text>
+<rect x="764.25" y="320.56" width="200.75" height="34.44" fill="#4178be" rx="3"/>
+<text x="864.62" y="310.56" text-anchor="middle" font-size="13" fill="#222">20</text>
+<text x="864.62" y="380" text-anchor="middle" font-size="12" fill="#222">
+<tspan x="864.62" dy="0">Platform D - custom</tspan>
+<tspan x="864.62" dy="15">bounded scan budget</tspan>
+<tspan x="864.62" dy="15">(emulated)</tspan>
+</text>
 </svg>
