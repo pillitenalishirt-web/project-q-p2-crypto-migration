@@ -1,0 +1,19 @@
+{
+  "notice": "Platform A and Platform B are local resource-budget emulations on the same host, not official physical target-platform measurements. Replace or supplement them with organizer measurements if provided.",
+  "profiles": [
+    {
+      "name": "Platform A - resource-rich baseline (local host)",
+      "status": "local-emulation-not-official",
+      "max_file_bytes": null,
+      "max_files": null,
+      "note": "Scans every supported file in the selected tree on the current machine; single process, no hardware acceleration."
+    },
+    {
+      "name": "Platform B - constrained service budget (emulated)",
+      "status": "resource-budget-emulation-not-official",
+      "max_file_bytes": 65536,
+      "max_files": 50,
+      "note": "Caps each file at 64 KiB and total selected files at 50; emulates a scan budget, not a physical single-core/RAM-limited machine."
+    }
+  ]
+}

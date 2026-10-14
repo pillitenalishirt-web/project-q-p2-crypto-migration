@@ -1,0 +1,11 @@
+{
+  "root": "data/raw/multilang_demo",
+  "files_scanned": 3,
+  "bytes_scanned": 505,
+  "finding_count": 3,
+  "findings_by_family": {
+    "RSA": 1,
+    "ML_KEM": 1,
+    "ML_DSA": 1
+  }
+}

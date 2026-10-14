@@ -1,0 +1,27 @@
+[
+  {
+    "file": "legacy_crypto.java",
+    "line": 5,
+    "family": "RSA"
+  },
+  {
+    "file": "legacy_crypto.java",
+    "line": 6,
+    "family": "ELLIPTIC_CURVE"
+  },
+  {
+    "file": "legacy_crypto.c",
+    "line": 3,
+    "family": "RSA"
+  },
+  {
+    "file": "pqc_usage.py",
+    "line": 2,
+    "family": "ML_KEM"
+  },
+  {
+    "file": "pqc_usage.py",
+    "line": 3,
+    "family": "ML_DSA"
+  }
+]

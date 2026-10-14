@@ -1,0 +1,72 @@
+[
+  {
+    "file": "legacy_crypto.py",
+    "line": 1,
+    "family": "RSA"
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 2,
+    "family": "ELLIPTIC_CURVE"
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 3,
+    "family": "DSA"
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 4,
+    "family": "RSA"
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 5,
+    "family": "ELLIPTIC_CURVE"
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 6,
+    "family": "DSA"
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 7,
+    "family": "DIFFIE_HELLMAN"
+  },
+  {
+    "file": "pqc_names.py",
+    "line": 1,
+    "family": "ML_KEM"
+  },
+  {
+    "file": "pqc_names.py",
+    "line": 2,
+    "family": "ML_DSA"
+  },
+  {
+    "file": "pqc_names.py",
+    "line": 3,
+    "family": "SLH_DSA"
+  },
+  {
+    "file": "pqc_names.py",
+    "line": 4,
+    "family": "RSA"
+  },
+  {
+    "file": "sample_config.json",
+    "line": 2,
+    "family": "ELLIPTIC_CURVE"
+  },
+  {
+    "file": "sample_config.json",
+    "line": 3,
+    "family": "ELLIPTIC_CURVE"
+  },
+  {
+    "file": "sample_config.json",
+    "line": 4,
+    "family": "ML_KEM"
+  }
+]

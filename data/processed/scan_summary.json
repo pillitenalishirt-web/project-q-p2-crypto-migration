@@ -1,0 +1,15 @@
+{
+  "root": "data/raw/labeled_corpus",
+  "files_scanned": 4,
+  "bytes_scanned": 732,
+  "finding_count": 14,
+  "findings_by_family": {
+    "RSA": 3,
+    "ELLIPTIC_CURVE": 4,
+    "DSA": 2,
+    "DIFFIE_HELLMAN": 1,
+    "ML_KEM": 2,
+    "ML_DSA": 1,
+    "SLH_DSA": 1
+  }
+}

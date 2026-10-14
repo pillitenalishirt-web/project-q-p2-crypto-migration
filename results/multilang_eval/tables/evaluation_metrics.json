@@ -1,0 +1,13 @@
+{
+  "label_source": "tests/multilang_expected_findings.json",
+  "unit": "relative file path + line number + algorithm family",
+  "true_positives": 3,
+  "false_positives": 0,
+  "false_negatives": 2,
+  "precision": 1.0,
+  "recall": 0.6,
+  "f1": 0.75,
+  "label_count": 5,
+  "prediction_count": 3,
+  "interpretation": "Metrics apply only to this labelled corpus and are not a general performance estimate."
+}

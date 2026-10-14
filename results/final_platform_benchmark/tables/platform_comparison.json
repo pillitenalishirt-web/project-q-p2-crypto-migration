@@ -1,0 +1,42 @@
+{
+  "measurement_type": "local same-host resource-budget profile comparison",
+  "memory_metric": "Python tracemalloc peak allocation; not total process RSS",
+  "warning": "These results do not represent independent physical machines or organizer-measured target platforms. Platform B is an explicit scan-budget emulation.",
+  "source_path": "data\\raw\\labeled_corpus",
+  "profiles": [
+    {
+      "profile": "Platform A - resource-rich baseline (local host)",
+      "profile_status": "local-emulation-not-official",
+      "host_os": "Windows-11-10.0.26300-SP0",
+      "python_version": "3.12.10",
+      "repeats": 30,
+      "files_scanned": 4,
+      "bytes_scanned": 732,
+      "finding_count": 14,
+      "mean_seconds": 0.00469663,
+      "median_seconds": 0.0042514,
+      "min_seconds": 0.0040194,
+      "max_seconds": 0.008027,
+      "bytes_per_second": 155856.43,
+      "peak_traced_python_bytes_median": 49885,
+      "note": "Scans every supported file in the selected tree on the current machine; single process, no hardware acceleration."
+    },
+    {
+      "profile": "Platform B - constrained service budget (emulated)",
+      "profile_status": "resource-budget-emulation-not-official",
+      "host_os": "Windows-11-10.0.26300-SP0",
+      "python_version": "3.12.10",
+      "repeats": 30,
+      "files_scanned": 4,
+      "bytes_scanned": 732,
+      "finding_count": 14,
+      "mean_seconds": 0.00421936,
+      "median_seconds": 0.0040979,
+      "min_seconds": 0.0040355,
+      "max_seconds": 0.005631,
+      "bytes_per_second": 173486.03,
+      "peak_traced_python_bytes_median": 49885,
+      "note": "Caps each file at 64 KiB and total selected files at 50; emulates a scan budget, not a physical single-core/RAM-limited machine."
+    }
+  ]
+}

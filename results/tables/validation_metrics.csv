@@ -1,0 +1,2 @@
+label_source,unit,true_positives,false_positives,false_negatives,precision,recall,f1,label_count,prediction_count,interpretation,files_scanned,bytes_scanned
+tests\expected_findings.json,relative file path + line number + algorithm family,14,0,0,1.0,1.0,1.0,14,14,Metrics apply only to this labelled corpus and are not a general performance estimate.,4,732

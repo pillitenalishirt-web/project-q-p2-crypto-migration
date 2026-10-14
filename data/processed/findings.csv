@@ -1,0 +1,15 @@
+file,line,family,category,severity,evidence,recommendation
+legacy_crypto.py,1,RSA,classical-public-key,HIGH,from cryptography.hazmat.primitives.asymmetric import rsa,Review encryption and signature use. Assess approved post-quantum key establishment or signature standards according to protocol role.
+legacy_crypto.py,2,ELLIPTIC_CURVE,classical-public-key,HIGH,from cryptography.hazmat.primitives.asymmetric import ec,Review elliptic-curve key exchange and signature use. Assess ML-KEM for key establishment and ML-DSA or SLH-DSA for signatures.
+legacy_crypto.py,3,DSA,classical-public-key,HIGH,from cryptography.hazmat.primitives.asymmetric import dsa,Review digital-signature use. Assess ML-DSA or SLH-DSA and verify protocol and library compatibility.
+legacy_crypto.py,4,RSA,classical-public-key,HIGH,"private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)",Review encryption and signature use. Assess approved post-quantum key establishment or signature standards according to protocol role.
+legacy_crypto.py,5,ELLIPTIC_CURVE,classical-public-key,HIGH,curve_key = ec.generate_private_key(ec.SECP256R1()),Review elliptic-curve key exchange and signature use. Assess ML-KEM for key establishment and ML-DSA or SLH-DSA for signatures.
+legacy_crypto.py,6,DSA,classical-public-key,HIGH,signature_key = dsa.generate_private_key(key_size=2048),Review digital-signature use. Assess ML-DSA or SLH-DSA and verify protocol and library compatibility.
+legacy_crypto.py,7,DIFFIE_HELLMAN,classical-key-establishment,HIGH,"exchange_name = ""Diffie-Hellman""",Review key-establishment use. Assess ML-KEM or an approved hybrid approach appropriate to the protocol.
+pqc_names.py,1,ML_KEM,post-quantum-indicator,INFO,"kem_name = ""ML-KEM-768""","Post-quantum key-encapsulation indicator. Verify standardized parameter set, vetted implementation and protocol integration."
+pqc_names.py,2,ML_DSA,post-quantum-indicator,INFO,"signature_name = ""ML-DSA-65""","Post-quantum signature indicator. Verify standardized parameter set, vetted implementation and protocol integration."
+pqc_names.py,3,SLH_DSA,post-quantum-indicator,INFO,"hash_signature_name = ""SLH-DSA-SHA2-128s""","Post-quantum hash-based signature indicator. Review signature size, performance and implementation requirements."
+pqc_names.py,4,RSA,classical-public-key,HIGH,"legacy_name = ""RSA""",Review encryption and signature use. Assess approved post-quantum key establishment or signature standards according to protocol role.
+sample_config.json,2,ELLIPTIC_CURVE,classical-public-key,HIGH,"""key_exchange"": ""ECDH"",",Review elliptic-curve key exchange and signature use. Assess ML-KEM for key establishment and ML-DSA or SLH-DSA for signatures.
+sample_config.json,3,ELLIPTIC_CURVE,classical-public-key,HIGH,"""signature"": ""ECDSA"",",Review elliptic-curve key exchange and signature use. Assess ML-KEM for key establishment and ML-DSA or SLH-DSA for signatures.
+sample_config.json,4,ML_KEM,post-quantum-indicator,INFO,"""post_quantum_kem"": ""ML-KEM-768""","Post-quantum key-encapsulation indicator. Verify standardized parameter set, vetted implementation and protocol integration."

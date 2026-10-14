@@ -1,0 +1,21 @@
+{
+  "title": "Cryptographic Inventory Risk Report",
+  "scope": "data/raw/multilang_demo",
+  "files_scanned": 3,
+  "bytes_scanned": 505,
+  "total_findings": 5,
+  "high_risk_findings": 3,
+  "pqc_indicators": 2,
+  "findings_by_family": {
+    "RSA": 2,
+    "ELLIPTIC_CURVE": 1,
+    "ML_KEM": 1,
+    "ML_DSA": 1
+  },
+  "prioritization": "HIGH findings are classical public-key/key-establishment indicators requiring human review; INFO findings indicate possible PQC adoption and are not proof of secure deployment.",
+  "limitations": [
+    "Static source indicators may be false positives or miss indirect, aliased, dynamically loaded, binary or dependency-mediated cryptography.",
+    "Do not include secret key material in inventory output.",
+    "Migration decisions require protocol and implementation review."
+  ]
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "file": "legacy_crypto.py",
+    "line": 1,
+    "family": "RSA",
+    "category": "classical-public-key",
+    "severity": "HIGH",
+    "evidence": "from cryptography.hazmat.primitives.asymmetric import rsa",
+    "recommendation": "Review encryption and signature use. Assess approved post-quantum key establishment or signature standards according to protocol role."
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 2,
+    "family": "ELLIPTIC_CURVE",
+    "category": "classical-public-key",
+    "severity": "HIGH",
+    "evidence": "from cryptography.hazmat.primitives.asymmetric import ec",
+    "recommendation": "Review elliptic-curve key exchange and signature use. Assess ML-KEM for key establishment and ML-DSA or SLH-DSA for signatures."
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 3,
+    "family": "DSA",
+    "category": "classical-public-key",
+    "severity": "HIGH",
+    "evidence": "from cryptography.hazmat.primitives.asymmetric import dsa",
+    "recommendation": "Review digital-signature use. Assess ML-DSA or SLH-DSA and verify protocol and library compatibility."
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 4,
+    "family": "RSA",
+    "category": "classical-public-key",
+    "severity": "HIGH",
+    "evidence": "private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+    "recommendation": "Review encryption and signature use. Assess approved post-quantum key establishment or signature standards according to protocol role."
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 5,
+    "family": "ELLIPTIC_CURVE",
+    "category": "classical-public-key",
+    "severity": "HIGH",
+    "evidence": "curve_key = ec.generate_private_key(ec.SECP256R1())",
+    "recommendation": "Review elliptic-curve key exchange and signature use. Assess ML-KEM for key establishment and ML-DSA or SLH-DSA for signatures."
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 6,
+    "family": "DSA",
+    "category": "classical-public-key",
+    "severity": "HIGH",
+    "evidence": "signature_key = dsa.generate_private_key(key_size=2048)",
+    "recommendation": "Review digital-signature use. Assess ML-DSA or SLH-DSA and verify protocol and library compatibility."
+  },
+  {
+    "file": "legacy_crypto.py",
+    "line": 7,
+    "family": "DIFFIE_HELLMAN",
+    "category": "classical-key-establishment",
+    "severity": "HIGH",
+    "evidence": "exchange_name = \"Diffie-Hellman\"",
+    "recommendation": "Review key-establishment use. Assess ML-KEM or an approved hybrid approach appropriate to the protocol."
+  },
+  {
+    "file": "pqc_names.py",
+    "line": 1,
+    "family": "ML_KEM",
+    "category": "post-quantum-indicator",
+    "severity": "INFO",
+    "evidence": "kem_name = \"ML-KEM-768\"",
+    "recommendation": "Post-quantum key-encapsulation indicator. Verify standardized parameter set, vetted implementation and protocol integration."
+  },
+  {
+    "file": "pqc_names.py",
+    "line": 2,
+    "family": "ML_DSA",
+    "category": "post-quantum-indicator",
+    "severity": "INFO",
+    "evidence": "signature_name = \"ML-DSA-65\"",
+    "recommendation": "Post-quantum signature indicator. Verify standardized parameter set, vetted implementation and protocol integration."
+  },
+  {
+    "file": "pqc_names.py",
+    "line": 3,
+    "family": "SLH_DSA",
+    "category": "post-quantum-indicator",
+    "severity": "INFO",
+    "evidence": "hash_signature_name = \"SLH-DSA-SHA2-128s\"",
+    "recommendation": "Post-quantum hash-based signature indicator. Review signature size, performance and implementation requirements."
+  },
+  {
+    "file": "pqc_names.py",
+    "line": 4,
+    "family": "RSA",
+    "category": "classical-public-key",
+    "severity": "HIGH",
+    "evidence": "legacy_name = \"RSA\"",
+    "recommendation": "Review encryption and signature use. Assess approved post-quantum key establishment or signature standards according to protocol role."
+  },
+  {
+    "file": "sample_config.json",
+    "line": 2,
+    "family": "ELLIPTIC_CURVE",
+    "category": "classical-public-key",
+    "severity": "HIGH",
+    "evidence": "\"key_exchange\": \"ECDH\",",
+    "recommendation": "Review elliptic-curve key exchange and signature use. Assess ML-KEM for key establishment and ML-DSA or SLH-DSA for signatures."
+  },
+  {
+    "file": "sample_config.json",
+    "line": 3,
+    "family": "ELLIPTIC_CURVE",
+    "category": "classical-public-key",
+    "severity": "HIGH",
+    "evidence": "\"signature\": \"ECDSA\",",
+    "recommendation": "Review elliptic-curve key exchange and signature use. Assess ML-KEM for key establishment and ML-DSA or SLH-DSA for signatures."
+  },
+  {
+    "file": "sample_config.json",
+    "line": 4,
+    "family": "ML_KEM",
+    "category": "post-quantum-indicator",
+    "severity": "INFO",
+    "evidence": "\"post_quantum_kem\": \"ML-KEM-768\"",
+    "recommendation": "Post-quantum key-encapsulation indicator. Verify standardized parameter set, vetted implementation and protocol integration."
+  }
+]

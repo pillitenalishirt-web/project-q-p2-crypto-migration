@@ -1,0 +1,4 @@
+file,line,family,category,severity,risk_score,risk_reason,evidence,recommendation
+legacy_crypto.java,5,RSA,classical-public-key,HIGH,90,Quantum-vulnerable public-key/key-establishment indicator,"KeyPairGenerator rsa = KeyPairGenerator.getInstance(""RSA"");",Review encryption and signature use. Assess approved post-quantum key establishment or signature standards according to protocol role.
+pqc_usage.py,2,ML_KEM,post-quantum-indicator,INFO,10,Post-quantum algorithm indicator; verify implementation and parameter set,"algorithm = ""ML-KEM-768""","Post-quantum key-encapsulation indicator. Verify standardized parameter set, vetted implementation and protocol integration."
+pqc_usage.py,3,ML_DSA,post-quantum-indicator,INFO,10,Post-quantum algorithm indicator; verify implementation and parameter set,"signature = ""ML-DSA-65""","Post-quantum signature indicator. Verify standardized parameter set, vetted implementation and protocol integration."

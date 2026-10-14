@@ -1,0 +1,39 @@
+{
+  "measurement_type": "local same-host processing-profile comparison",
+  "warning": "These results do not represent measurements from two physical machines or organizer-defined profiles.",
+  "source_path": "data/raw/labeled_corpus",
+  "profiles": [
+    {
+      "profile": "Platform A - baseline local scan",
+      "profile_status": "local-demonstration-not-official",
+      "host_os": "Linux-6.18.44-x86_64-with-glibc2.41",
+      "python_version": "3.13.5",
+      "repeats": 30,
+      "files_scanned": 4,
+      "bytes_scanned": 732,
+      "finding_count": 14,
+      "mean_seconds": 0.00069391,
+      "median_seconds": 0.00065626,
+      "min_seconds": 0.00060532,
+      "max_seconds": 0.00096367,
+      "bytes_per_second": 1054892.15,
+      "note": "Scans every supported file in the selected tree on the current machine."
+    },
+    {
+      "profile": "Platform B - constrained local scan",
+      "profile_status": "local-demonstration-not-official",
+      "host_os": "Linux-6.18.44-x86_64-with-glibc2.41",
+      "python_version": "3.13.5",
+      "repeats": 30,
+      "files_scanned": 4,
+      "bytes_scanned": 732,
+      "finding_count": 14,
+      "mean_seconds": 0.00077304,
+      "median_seconds": 0.00070983,
+      "min_seconds": 0.00062034,
+      "max_seconds": 0.00194941,
+      "bytes_per_second": 946909.14,
+      "note": "Limits scanned files to 64 KiB each and at most 50 files; this is a processing-budget emulation, not a slower physical CPU."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "label_source": "tests\\expected_findings.json",
+  "unit": "relative file path + line number + algorithm family",
+  "true_positives": 14,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "label_count": 14,
+  "prediction_count": 14,
+  "interpretation": "Metrics apply only to this labelled corpus and are not a general performance estimate.",
+  "files_scanned": 4,
+  "bytes_scanned": 732
+}

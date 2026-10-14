@@ -1,0 +1,5 @@
+{
+  "key_exchange": "ECDH",
+  "signature": "ECDSA",
+  "post_quantum_kem": "ML-KEM-768"
+}
