@@ -41,7 +41,7 @@ These are reproducible local results from one host and a synthetic corpus. Lower
 
 ## 5. Phase 1 platform scope
 
-This build contains Platform A and Platform B profiles only, following the A/B-only Phase 1 interpretation. The supplied documents conflict: the earlier Participant Instructions and Master Challenge Guide say C/D are not required in Phase 1, while the later `Updated_Challenge_Kit.pdf` includes a PQC-specific Platform D requirement. Confirm which version governs with the organizers before final submission. No Platform D result is included in this build.
+This project now includes Platform A, B and custom Platform D profiles. The supplied documents conflict: earlier participant instructions describe an A/B-only Phase 1 scope, while the later `Updated_Challenge_Kit.pdf` specifically asks PQC participants to design and benchmark Platform D. The D result below is a same-host resource-budget emulation, not an official physical-platform measurement.
 
 ## 6. Public repository and organizer ground truth
 
@@ -55,8 +55,21 @@ Before submission, scan the organizer-provided Python/Java/C repository if avail
 - Python AST analysis is limited to selected import patterns; Java and C currently use source-line patterns rather than full language ASTs.
 - Heuristic risk scores are not calibrated probabilities.
 - The local Platform A/B configurations are resource-budget emulations, not official physical targets or hard RAM/CPU enforcement.
-- The consolidated kit and earlier participant instructions differ on whether custom Platform D is part of Phase 1. This build follows the A/B-only interpretation and records the conflict for confirmation.
+- The consolidated kit and earlier participant instructions differ on whether custom Platform D is part of Phase 1. This project includes D to address the newer kit; confirm the governing instructions with organizers if possible.
 
 ## 8. Reproducibility
 
 Run the commands in README.md from the project root. Record Python version, OS, source repository URL and commit, scan date, command, repetition count, labels source, and whether platform profiles are official or emulated. Rerun tests and benchmarks after any change. Do not publish secrets or private key material.
+
+
+## 9. Custom Platform D benchmark ? Windows 11
+
+Environment: Windows 11, Python 3.12.10. Dataset: `data/raw/labeled_corpus` (4 files, 732 bytes). Repetitions: 30 per profile. Platform D uses a proposed custom scan budget of 16 KiB per file and 20 files. This is a same-host emulation, not a separate device.
+
+| Profile | Files scanned | Bytes scanned | Findings | Mean time (s) | Median time (s) | Median traced Python allocation (bytes) |
+|---|---:|---:|---:|---:|---:|---:|
+| Platform A | 4 | 732 | 14 | 0.00539140 | 0.00403285 | 49,885 |
+| Platform B | 4 | 732 | 14 | 0.00420866 | 0.00413345 | 49,885 |
+| Platform D | 4 | 732 | 14 | 0.00425228 | 0.00412625 | 49,885 |
+
+The custom D limits were not reached by this small corpus. The results therefore do not demonstrate a meaningful resource or coverage trade-off. Runtime differences are small and may reflect normal timing variation on one host. The figures and raw tables are in `results/platform_d_benchmark/`. These results are separate from the earlier Linux synthetic-corpus benchmark above.

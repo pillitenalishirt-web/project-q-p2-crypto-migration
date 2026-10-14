@@ -18,7 +18,7 @@ This is a source-level triage tool, not a cryptographic certification or proof t
 - CSV and JSON findings plus a risk summary in Markdown and JSON.
 - Labelled-corpus precision/recall/F1 evaluation.
 - Repeated runtime benchmark, peak Python allocation estimate, file coverage, and comparison charts.
-- Platform A/B resource-budget profiles, clearly labelled local emulations rather than official physical-platform measurements.
+- Platform A/B/D resource-budget profiles, clearly labelled local emulations rather than official physical-platform measurements.
 
 ## Quick start
 
@@ -52,7 +52,7 @@ To compute precision and recall on that repository, create independent labels af
 
 ## Platform interpretation
 
-This Phase 1 package is configured for **Platform A and Platform B only**, following the A/B-only scope stated in the Phase 1 Participant Instructions and Master Challenge Guide. The PQC documents supplied with the project conflict on whether Platform D is required: the later `Updated_Challenge_Kit.pdf` asks PQC participants to design Platform D. This ZIP follows the A/B-only Phase 1 interpretation requested for this build; confirm the conflict with the organizers before final submission if possible.
+This project includes Platform A, Platform B and custom Platform D profiles. The later `Updated_Challenge_Kit.pdf` requests a custom Platform D for PQC participants, while earlier participant instructions describe an A/B-only Phase 1 scope. Platform D is a same-host resource-budget emulation, not a separate physical platform or an official organizer measurement. Confirm the governing instructions with organizers if possible.
 
 The profiles are transparent *same-host resource-budget emulations*:
 - **A:** scan all eligible files.

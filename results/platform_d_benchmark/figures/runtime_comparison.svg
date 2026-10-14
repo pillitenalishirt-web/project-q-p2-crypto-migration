@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="430" viewBox="0 0 820 430">
+<rect width="100%" height="100%" fill="white"/>
+<text x="410.0" y="32" text-anchor="middle" font-size="19" font-weight="bold">Mean scan runtime by local profile (seconds)</text>
+<line x1="90" y1="345" x2="785" y2="345" stroke="#333"/>
+<line x1="90" y1="65" x2="90" y2="345" stroke="#333"/>
+<rect x="90.00" y="343.63" width="221.00" height="1.37" fill="#4178be"/>
+<text x="200.50" y="335.63" text-anchor="middle" font-size="12">0.005391</text>
+<text x="200.50" y="369" text-anchor="middle" font-size="11">Platform A - resource-rich baseline (local host)</text>
+<rect x="327.00" y="343.93" width="221.00" height="1.07" fill="#4178be"/>
+<text x="437.50" y="335.93" text-anchor="middle" font-size="12">0.004209</text>
+<text x="437.50" y="369" text-anchor="middle" font-size="11">Platform B - constrained service budget (emulated)</text>
+<rect x="564.00" y="343.92" width="221.00" height="1.08" fill="#4178be"/>
+<text x="674.50" y="335.92" text-anchor="middle" font-size="12">0.004252</text>
+<text x="674.50" y="369" text-anchor="middle" font-size="11">Platform D - custom memory-constrained migration scanner</text>
+</svg>
