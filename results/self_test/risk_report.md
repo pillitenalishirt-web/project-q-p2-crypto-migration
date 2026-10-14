@@ -1,1 +1,28 @@
-# Cryptographic Inventory Risk Report\n\n- Scope: `data/raw/labeled_corpus`\n- Files scanned: 4\n- Bytes scanned: 732\n- Total findings: 14\n- High-risk classical indicators: 10\n- PQC indicators: 4\n\n## Findings by family\n\n- DIFFIE_HELLMAN: 1\n- DSA: 2\n- ELLIPTIC_CURVE: 4\n- ML_DSA: 1\n- ML_KEM: 2\n- RSA: 3\n- SLH_DSA: 1\n\n## Interpretation\n\nHIGH findings are classical public-key/key-establishment indicators requiring human review; INFO findings indicate possible PQC adoption and are not proof of secure deployment.\n\n## Limitations\n\n- Static source indicators may be false positives or miss indirect, aliased, dynamically loaded, binary or dependency-mediated cryptography.\n- Do not include secret key material in inventory output.\n- Migration decisions require protocol and implementation review.\n
+# Cryptographic Inventory Risk Report
+
+- Scope: `data/raw/labeled_corpus`
+- Files scanned: 4
+- Bytes scanned: 732
+- Total findings: 14
+- High-risk classical indicators: 10
+- PQC indicators: 4
+
+## Findings by family
+
+- DIFFIE_HELLMAN: 1
+- DSA: 2
+- ELLIPTIC_CURVE: 4
+- ML_DSA: 1
+- ML_KEM: 2
+- RSA: 3
+- SLH_DSA: 1
+
+## Interpretation
+
+HIGH findings are classical public-key/key-establishment indicators requiring human review; INFO findings indicate possible PQC adoption and are not proof of secure deployment.
+
+## Limitations
+
+- Static source indicators may be false positives or miss indirect, aliased, dynamically loaded, binary or dependency-mediated cryptography.
+- Do not include secret key material in inventory output.
+- Migration decisions require protocol and implementation review.

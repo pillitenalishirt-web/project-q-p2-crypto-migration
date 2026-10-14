@@ -1,75 +1,66 @@
-# Technical Report — P2 Crypto Inventory & Migration Planner
+# Technical Report — PS-P2 Crypto Inventory & Migration Planner
 
 ## 1. Problem and approach
 
-P2 asks for a static scanner that discovers classical cryptographic indicators, assesses quantum migration risk, and recommends post-quantum review paths. The scanner examines source/configuration lines, supplements selected Python imports with AST analysis, and exports findings with path, line, family, evidence, severity, a simple priority score, and a review recommendation.
-
-The priority score is intentionally heuristic: `HIGH` classical public-key/key-establishment indicators receive 90; PQC indicators receive 10 because they are positive inventory signals, not evidence of a vulnerability. These values are prioritization labels, not calibrated probabilities.
+PS-P2 asks for a scanner that discovers classical cryptographic usage in a multi-language codebase, classifies quantum migration risk, and recommends post-quantum review paths. This implementation uses source-line rules across common code/configuration extensions and selected Python AST import checks. Findings include path, line, algorithm family, evidence, severity/priority and review guidance.
 
 ## 2. Migration mapping
 
-- RSA, DSA, Diffie–Hellman and elliptic-curve indicators should be reviewed in their protocol role.
-- NIST FIPS 203 defines ML-KEM for key establishment.
-- NIST FIPS 204 defines ML-DSA for digital signatures.
-- NIST FIPS 205 defines SLH-DSA for hash-based digital signatures.
+- RSA and elliptic-curve key establishment: review whether ML-KEM or an approved hybrid key-establishment design fits the protocol.
+- DSA/ECDSA and other classical signatures: review ML-DSA or SLH-DSA according to protocol, policy and library support.
+- Diffie–Hellman: review key-establishment role and hybrid migration options.
+- ML-KEM is standardized in NIST FIPS 203; ML-DSA in FIPS 204; SLH-DSA in FIPS 205.
 
-The mapping is a starting point only. Algorithm replacement must account for protocol compatibility, validated implementations, parameter sets, performance, interoperability and organizational policy.
+These are review directions, not drop-in replacements. The correct migration depends on protocol role, interoperability, parameter sets, vetted libraries and organizational requirements.
 
 ## 3. Validation
 
-The project includes:
-- A small labelled Python corpus with 14 expected line/family findings.
-- A small cross-language demonstration corpus containing Python, Java and C examples, with five expected line/family labels.
-- Seven unit tests covering labelled metrics, missing paths, neutral files, Python AST import recognition, resource limits, cross-language examples and risk metadata.
-
-The included corpora are intentionally small, controlled examples. Their precision/recall do not estimate real-world performance. The cross-language fixtures are project-created examples, not the organizer-provided ground truth.
+The included labelled corpus has 14 expected line/family findings across four small files. The cross-language demo contains participant-created Python/Java/C examples with five hand-authored labels. These are development fixtures, not organizer ground truth, and their scores are not generalizable to real repositories.
 
 ## 4. Benchmark method
 
-The benchmark runs each profile repeatedly with `time.perf_counter()`. It records mean, median, min/max runtime, files and bytes scanned, findings, throughput, and median peak Python-traced allocation using `tracemalloc`. The latter is not total process memory/RSS.
+Each profile is run 30 times using `time.perf_counter()`. The output records mean/median/min/max runtime, eligible files scanned, bytes scanned, findings, throughput and median peak Python-traced allocation (`tracemalloc`). Traced allocation is not total process memory/RSS.
 
-### Latest local synthetic-corpus run
+### Current local A/B/C/D benchmark
 
-Environment: Linux x86-64, Python 3.13.5. Dataset: the bundled generated benchmark corpus (150 generated modules plus the generator file), not an external public repository. Repetitions: 30 per profile.
+Environment: Windows-11-10.0.26300-SP0; Python 3.12.10. Dataset: `data/processed/benchmark_corpus` (synthetic generated corpus). Repetitions: 30 per profile. Measurement timestamp: 2026-10-14T21:52:58+05:30.
 
-| Profile | Files scanned | Bytes scanned | Findings | Mean time (s) | Median traced allocation (bytes) |
-|---|---:|---:|---:|---:|---:|
-| Platform A — all eligible files | 151 | 48,063 | 900 | 0.11324364 | 449,563 |
-| Platform B — max 50 files / 64 KiB per file | 50 | 15,885 | 295 | 0.04076672 | 184,597 |
+| Profile | Files scanned | Bytes scanned | Findings | Mean time (s) | Median time (s) | Median traced allocation (bytes) |
+|---|---:|---:|---:|---:|---:|---:|
+| Platform A — all eligible files | 151 | 48063 | 900 | 0.32140681 | 0.26205115 | 496,987 |
+| Platform B — up to 50 files / 64 KiB each | 50 | 15885 | 295 | 0.09206985 | 0.09095375 | 197,916 |
+| Platform C — up to 10 files / 64 KiB each (embedded-style proxy) | 10 | 3033 | 54 | 0.02667599 | 0.02648635 | 144,561 |
+| Platform D — up to 20 files / 16 KiB each (custom proxy) | 20 | 6315 | 115 | 0.04367638 | 0.04329100 | 144,561 |
 
-These are reproducible local results from one host and a synthetic corpus. Lower runtime and allocation under B result primarily from scanning fewer files/bytes; they do **not** show that a constrained device is faster. Detection counts are not accuracy scores, and the scan budget reduces coverage. Raw results and charts are in `results/final_platform_benchmark/`.
+These are same-host scan-budget emulations, not separate physical devices or official organizer measurements. B/C/D scan limits can reduce coverage; a lower runtime or lower finding count is not evidence of better scanner accuracy or a faster physical device. The exact profile configuration and raw results are in `platforms/platform_profiles.json` and `results/final_platform_abcd_benchmark/`.
 
-## 5. Phase 1 platform scope
+### Figures
 
-This project now includes Platform A, B and custom Platform D profiles. The supplied documents conflict: earlier participant instructions describe an A/B-only Phase 1 scope, while the later `Updated_Challenge_Kit.pdf` specifically asks PQC participants to design and benchmark Platform D. The D result below is a same-host resource-budget emulation, not an official physical-platform measurement.
+![Runtime comparison](results/final_platform_abcd_benchmark/figures/runtime_comparison.svg)
 
-## 6. Public repository and organizer ground truth
+![Finding count comparison](results/final_platform_abcd_benchmark/figures/finding_count_comparison.svg)
 
-The official P2 descriptions refer to scanning a public repository and evaluating precision/recall against organizer ground truth. The supplied ZIP did not contain the organizer's planted multi-language repository or ground-truth labels. This environment could not clone GitHub because outbound network resolution was unavailable, so no public repository scan is claimed in this build. The README contains exact commands to run the scanner against Requests after cloning it locally.
+![Traced allocation comparison](results/final_platform_abcd_benchmark/figures/memory_comparison.svg)
 
-Before submission, scan the organizer-provided Python/Java/C repository if available. Use its ground-truth labels for the official precision/recall calculation. If the organizers have not provided labels, independently review a labelled subset and clearly state its scope. Never infer ground truth from the scanner's own predictions.
+![Files scanned comparison](results/final_platform_abcd_benchmark/figures/coverage_comparison.svg)
+
+## 5. Platform interpretation and D rationale
+
+The latest consolidated `Updated_Challenge_Kit.pdf` defines the PQC track as classical software measured on target Platforms A/B/C followed by a custom Platform D. The P2-specific numeric CPU/RAM limits were not fully specified in the PDFs reviewed. This project therefore proposes reproducible input-budget proxies: A scans all eligible files; B scans at most 50 files up to 64 KiB each; C scans at most 10 files up to 64 KiB each; D scans at most 20 files up to 16 KiB each. D is custom because it selects an intermediate bounded-scan budget; it is not a separate physical device and does not enforce a total RAM cap.
+
+## 6. Organizer ground truth and external validation
+
+The official kit describes an organizer-provided Python/Java/C sample with planted cryptographic usages and says ground truth is withheld until judging. That sample and its labels were not present in the files reviewed for this build. Therefore, official precision/recall remains pending. The bundled demo is not a substitute. Run the official sample and evaluate against the organizer labels if/when provided. A public repository scan may be added as optional exploratory evidence; without independently reviewed labels, report findings and runtime only.
 
 ## 7. Limitations
 
-- Text/regex indicators can match comments or strings and may miss aliases, wrappers, dependency APIs, runtime-loaded modules and binaries.
-- Python AST analysis is limited to selected import patterns; Java and C currently use source-line patterns rather than full language ASTs.
-- Heuristic risk scores are not calibrated probabilities.
-- The local Platform A/B configurations are resource-budget emulations, not official physical targets or hard RAM/CPU enforcement.
-- The consolidated kit and earlier participant instructions differ on whether custom Platform D is part of Phase 1. This project includes D to address the newer kit; confirm the governing instructions with organizers if possible.
+- Text rules can match comments/strings and may miss aliases, wrappers, runtime-loaded modules, binaries and dependency-mediated cryptography.
+- Python AST support covers selected imports; Java and C use source-line patterns, not full language ASTs.
+- Risk scores are heuristic prioritization labels, not calibrated probabilities.
+- The included corpora are small; perfect fixture metrics are not a real-world performance estimate.
+- A/B/C/D results are same-host input-budget emulations. They are not official CPU/RAM measurements.
+- Older general participant instructions/quantum guides say Phase 1 is A/B only, while the later consolidated kit explicitly specifies A/B/C and custom D for PQC. This project follows the newer PQC-specific section and records the conflict in `CHALLENGE_REQUIREMENTS.md`.
 
 ## 8. Reproducibility
 
-Run the commands in README.md from the project root. Record Python version, OS, source repository URL and commit, scan date, command, repetition count, labels source, and whether platform profiles are official or emulated. Rerun tests and benchmarks after any change. Do not publish secrets or private key material.
-
-
-## 9. Custom Platform D benchmark ? Windows 11
-
-Environment: Windows 11, Python 3.12.10. Dataset: `data/raw/labeled_corpus` (4 files, 732 bytes). Repetitions: 30 per profile. Platform D uses a proposed custom scan budget of 16 KiB per file and 20 files. This is a same-host emulation, not a separate device.
-
-| Profile | Files scanned | Bytes scanned | Findings | Mean time (s) | Median time (s) | Median traced Python allocation (bytes) |
-|---|---:|---:|---:|---:|---:|---:|
-| Platform A | 4 | 732 | 14 | 0.00539140 | 0.00403285 | 49,885 |
-| Platform B | 4 | 732 | 14 | 0.00420866 | 0.00413345 | 49,885 |
-| Platform D | 4 | 732 | 14 | 0.00425228 | 0.00412625 | 49,885 |
-
-The custom D limits were not reached by this small corpus. The results therefore do not demonstrate a meaningful resource or coverage trade-off. Runtime differences are small and may reflect normal timing variation on one host. The figures and raw tables are in `results/platform_d_benchmark/`. These results are separate from the earlier Linux synthetic-corpus benchmark above.
+From the project root run `python -m unittest discover -s tests -v`, `python main.py --self-test`, and `python main.py --benchmark data/processed/benchmark_corpus --out results/final_platform_abcd_benchmark --repeats 30`. Record OS, Python version, date, command, profile configuration and data source. Do not publish secrets or private key material.

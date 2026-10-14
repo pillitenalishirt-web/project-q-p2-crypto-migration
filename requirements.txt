@@ -1,1 +1,2 @@
-
+# Core scanner uses only the Python standard library.
+# Supported Python version: 3.10 or newer.

@@ -1,13 +1,14 @@
-# Phase 1 Submission Checklist
+# Phase 1 Submission Checklist — PS-P2
 
-- [ ] Confirm the registered team/participant name and selected code P2.
-- [ ] Read the latest official P2 Challenge Kit and replace any local demonstration Platform A/B settings with the official definitions and benchmark procedure.
+- [ ] Confirm registered participant/team details and select Post-Quantum Cryptography → PS-P2 in the portal.
+- [ ] Verify the repository is public and the submitted URL is correct.
 - [ ] Run `python -m unittest discover -s tests -v`.
-- [ ] Run `python main.py --self-test`.
-- [ ] Scan a public open-source repository as requested by the P2 problem statement; record its URL, commit/version and scan date.
-- [ ] Run repeated benchmarks and regenerate the tables and charts.
-- [ ] Review the report against measured outputs; remove any claims not supported by runs.
-- [ ] Review AI disclosure against the organizers' special permission and policy.
-- [ ] Ensure `main.ipynb`, README, report, requirements, source, tests and result files are present.
-- [ ] Upload the contents of this folder to a public GitHub repository.
-- [ ] Submit the public repository URL through https://qffsrmap2026.com/learning/hackathon before the applicable deadline.
+- [ ] Run `python main.py --self-test`; label the result as bundled-fixture-only.
+- [ ] Run the Python/Java/C demo evaluation and retain its CSV/JSON report.
+- [ ] Run the A/B/C/D benchmark on the bundled synthetic corpus and regenerate tables/figures.
+- [ ] Check that README and report link to the current charts and state the local-emulation limitations.
+- [ ] Run the organizer-provided Python/Java/C sample and ground-truth evaluation when those files are made available; do not claim official metrics before then.
+- [ ] Check AI disclosure against the event's policy.
+- [ ] Confirm `main.py`, `main.ipynb`, `requirements.txt`, data, platform profiles, tests, results, README and report are present.
+- [ ] Commit and push the final version; confirm GitHub `main` contains the latest commit.
+- [ ] Submit the public repository URL through https://qffsrmap2026.com/learning/hackathon before the applicable portal deadline.

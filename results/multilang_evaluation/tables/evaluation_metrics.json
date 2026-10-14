@@ -1,5 +1,5 @@
 {
-  "label_source": "tests/multilang_expected_findings.json",
+  "label_source": "tests\\multilang_expected_findings.json",
   "unit": "relative file path + line number + algorithm family",
   "true_positives": 5,
   "false_positives": 0,

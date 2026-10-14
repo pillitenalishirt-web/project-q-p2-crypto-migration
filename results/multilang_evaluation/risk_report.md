@@ -1,1 +1,25 @@
-# Cryptographic Inventory Risk Report\n\n- Scope: `data/raw/multilang_demo`\n- Files scanned: 3\n- Bytes scanned: 505\n- Total findings: 5\n- High-risk classical indicators: 3\n- PQC indicators: 2\n\n## Findings by family\n\n- ELLIPTIC_CURVE: 1\n- ML_DSA: 1\n- ML_KEM: 1\n- RSA: 2\n\n## Interpretation\n\nHIGH findings are classical public-key/key-establishment indicators requiring human review; INFO findings indicate possible PQC adoption and are not proof of secure deployment.\n\n## Limitations\n\n- Static source indicators may be false positives or miss indirect, aliased, dynamically loaded, binary or dependency-mediated cryptography.\n- Do not include secret key material in inventory output.\n- Migration decisions require protocol and implementation review.\n
+# Cryptographic Inventory Risk Report
+
+- Scope: `data/raw/multilang_demo`
+- Files scanned: 3
+- Bytes scanned: 505
+- Total findings: 5
+- High-risk classical indicators: 3
+- PQC indicators: 2
+
+## Findings by family
+
+- ELLIPTIC_CURVE: 1
+- ML_DSA: 1
+- ML_KEM: 1
+- RSA: 2
+
+## Interpretation
+
+HIGH findings are classical public-key/key-establishment indicators requiring human review; INFO findings indicate possible PQC adoption and are not proof of secure deployment.
+
+## Limitations
+
+- Static source indicators may be false positives or miss indirect, aliased, dynamically loaded, binary or dependency-mediated cryptography.
+- Do not include secret key material in inventory output.
+- Migration decisions require protocol and implementation review.

@@ -64,17 +64,17 @@ def save_scan(scan, out):
     }
     write_json(out / "risk_report.json", risk_report)
     (out / "risk_report.md").write_text(
-        "# Cryptographic Inventory Risk Report\\n\\n"
-        f"- Scope: `{risk_report['scope']}`\\n"
-        f"- Files scanned: {risk_report['files_scanned']}\\n"
-        f"- Bytes scanned: {risk_report['bytes_scanned']}\\n"
-        f"- Total findings: {risk_report['total_findings']}\\n"
-        f"- High-risk classical indicators: {risk_report['high_risk_findings']}\\n"
-        f"- PQC indicators: {risk_report['pqc_indicators']}\\n\\n"
-        "## Findings by family\\n\\n" +
-        "".join(f"- {family}: {count}\\n" for family, count in sorted(family_counts.items())) +
-        "\\n## Interpretation\\n\\n" + risk_report["prioritization"] +
-        "\\n\\n## Limitations\\n\\n" + "".join(f"- {item}\\n" for item in risk_report["limitations"]),
+        "# Cryptographic Inventory Risk Report\n\n"
+        f"- Scope: `{risk_report['scope']}`\n"
+        f"- Files scanned: {risk_report['files_scanned']}\n"
+        f"- Bytes scanned: {risk_report['bytes_scanned']}\n"
+        f"- Total findings: {risk_report['total_findings']}\n"
+        f"- High-risk classical indicators: {risk_report['high_risk_findings']}\n"
+        f"- PQC indicators: {risk_report['pqc_indicators']}\n\n"
+        "## Findings by family\n\n" +
+        "".join(f"- {family}: {count}\n" for family, count in sorted(family_counts.items())) +
+        "\n## Interpretation\n\n" + risk_report["prioritization"] +
+        "\n\n## Limitations\n\n" + "".join(f"- {item}\n" for item in risk_report["limitations"]),
         encoding="utf-8"
     )
 
@@ -167,8 +167,8 @@ def main():
     parser.add_argument("--labels")
     parser.add_argument("--out", default=str(ROOT / "results"))
     parser.add_argument("--repeats", type=int, default=30)
-    parser.add_argument("--max-file-bytes", type=int)
-    parser.add_argument("--max-files", type=int)
+    parser.add_argument("--max-file-bytes", type=int, help="Per-file size filter for --scan; --benchmark uses platforms/platform_profiles.json")
+    parser.add_argument("--max-files", type=int, help="File-count limit for --scan; --benchmark uses platforms/platform_profiles.json")
     args = parser.parse_args()
     if args.self_test:
         self_test(args.out)
