@@ -2,7 +2,6 @@
 
 **Selected problem:** PS-P2 — Crypto Inventory & Migration Planner  
 **Track:** Post-Quantum Cryptography  
-**Stage:** Phase 1
 
 ## Purpose
 
